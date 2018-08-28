@@ -9,16 +9,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Table Name
     public static final String TABLE_NAME = "CNF_CHART";
-
+    private DBManager database;
     // Table columns
-    public static final String COL_ID = "_id";
+    public static final String COL_ID = "ID";
     public static final String COL_NAME = "NAME";
     public static final String COL_PNR = "PNR";
     public static final String COL_STATUS = "STATUS";
     public static final String COL_SEAT_NO = "SEAT_NO";
 
     // Database Information
-    private static final String DB_NAME = "charts123.db";
+    private static final String DB_NAME = "charts001.db";
 
     // database version
     static final int DB_VERSION = 1;
@@ -32,6 +32,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + COL_SEAT_NO + " TEXT NOT NULL"+" );";
 
 
+
+
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
@@ -39,6 +41,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE);
+
     }
 
     @Override

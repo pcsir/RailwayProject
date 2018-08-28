@@ -27,11 +27,15 @@ public class ConfirmedAdapter extends ArrayAdapter<PassengerModel> {
         //Check if the existing view is being reused, otherwise inflate a new view from custom_row layout
         if (convertView == null){
             LayoutInflater layoutInflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.custom_row, parent, false);
+            convertView = layoutInflater.inflate(R.layout.activity_charts, parent, false);
             viewHolder = new ViewHolder();
             //Casting of views from the custom_row layout
-            viewHolder.id1= convertView.findViewById(R.id.id1);
-            viewHolder.name1 = convertView.findViewById(R.id.name1);
+            viewHolder.id= convertView.findViewById(R.id.id1);
+            viewHolder.name = convertView.findViewById(R.id.name);
+            viewHolder.status=convertView.findViewById(R.id.status);
+            viewHolder.seat_no=convertView.findViewById(R.id.seat_no);
+            viewHolder.pnr=convertView.findViewById(R.id.pnr);
+
 
 
             convertView.setTag(viewHolder);
@@ -40,15 +44,18 @@ public class ConfirmedAdapter extends ArrayAdapter<PassengerModel> {
         }
 
         //Filling each views values
-        viewHolder.id1.setText((int) passengerModel.getId());
-        viewHolder.name1.setText(passengerModel.getName());
+        viewHolder.id.setText(passengerModel.getId());
+        viewHolder.name.setText(passengerModel.getName());
+        viewHolder.status.setText(passengerModel.getStatus());
+        viewHolder.pnr.setText(String.valueOf(passengerModel.getPnr()));
+        viewHolder.seat_no.setText(passengerModel.getSeat());
 
 
         return convertView;
     }
 
     static class ViewHolder{
-        TextView id1, name1;
+        TextView id,name,status,pnr,seat_no;
 
     }
 }

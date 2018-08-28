@@ -17,6 +17,8 @@ public class DBManager {
 
     private SQLiteDatabase database;
 
+    private   PassengerModel passengerModel;
+
     public DBManager(Context c) {
         context = c;
     }
@@ -31,7 +33,7 @@ public class DBManager {
         databaseHelper.close();
     }
 
-    public void insert(String name, String status, String seat, Long  id, Long pnr) {
+    public void insert(String name, String status, String seat, String  id, String pnr) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DatabaseHelper.COL_ID, id);
         contentValues.put(DatabaseHelper.COL_NAME, name);

@@ -15,4 +15,7 @@
         completions."
     </string>
     <string name="empty_list_text">hi</string>
+    <string name="username">test</string>
+    <string name="password">test123</string>
+    <string name="name">Name:</string>
 </resources>

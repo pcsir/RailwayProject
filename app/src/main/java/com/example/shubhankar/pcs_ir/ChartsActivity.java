@@ -15,6 +15,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class ChartsActivity extends AppCompatActivity {
 
 
@@ -22,7 +24,11 @@ public class ChartsActivity extends AppCompatActivity {
 
     private ListView listView;
 
-    private SimpleCursorAdapter adapter;
+    private ConfirmedAdapter adapter;
+
+    PassengerModel passengerModel;
+
+
 
     final String[] from = new String[] { DatabaseHelper.COL_ID,
             DatabaseHelper.COL_NAME, DatabaseHelper.COL_PNR,DatabaseHelper.COL_STATUS
@@ -41,14 +47,37 @@ public class ChartsActivity extends AppCompatActivity {
         dbManager.open();
 
         Cursor cursor = dbManager.fetch();
-      //  dbManager.insert("Sap","123","123", 45L,23L);
+        //dbManager.insert("Sap","Waiting","123", "001","453535657");
+
+       //dbManager.insert("Sap","RAC","123", "45","23456745L");
+       //dbManager.insert("Rohit","Confirmed","72", "46","6546754L");
+        ArrayList<PassengerModel> arrayList=new ArrayList<>();
+      //dbManager.insert("qwerty","123","123", "48","54213443");
+
+
+
+
+        for(cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+           passengerModel=new PassengerModel(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_ID)),
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_NAME)),cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_PNR)),
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_SEAT_NO)),
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_STATUS)));
+
+
+            arrayList.add(passengerModel);
+            // The Cursor is now set to the right position
+           // arrayList.add(passengerModel);
+
+        }
+
+
+
         Log.d("col_id",DatabaseHelper.COL_ID);
 
         listView = (ListView) findViewById(R.id.list_view);
         listView.setEmptyView(findViewById(R.id.empty));
 
-        adapter = new SimpleCursorAdapter(this,R.layout.activity_charts,
-                    cursor,from,to,0);
+        adapter = new ConfirmedAdapter(this,arrayList);
         adapter.notifyDataSetChanged();
 
         listView.setAdapter(adapter);
