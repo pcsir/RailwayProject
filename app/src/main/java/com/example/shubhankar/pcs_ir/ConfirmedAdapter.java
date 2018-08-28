@@ -27,7 +27,7 @@ public class ConfirmedAdapter extends ArrayAdapter<PassengerModel> {
         //Check if the existing view is being reused, otherwise inflate a new view from custom_row layout
         if (convertView == null){
             LayoutInflater layoutInflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.activity_charts, parent, false);
+            convertView = layoutInflater.inflate(R.layout.fragment_confirmed, parent, false);
             viewHolder = new ViewHolder();
             //Casting of views from the custom_row layout
             viewHolder.id= convertView.findViewById(R.id.id1);
@@ -35,10 +35,8 @@ public class ConfirmedAdapter extends ArrayAdapter<PassengerModel> {
             viewHolder.status=convertView.findViewById(R.id.status);
             viewHolder.seat_no=convertView.findViewById(R.id.seat_no);
             viewHolder.pnr=convertView.findViewById(R.id.pnr);
-
-
-
             convertView.setTag(viewHolder);
+
         }else {
             viewHolder = (ViewHolder) convertView.getTag();
         }

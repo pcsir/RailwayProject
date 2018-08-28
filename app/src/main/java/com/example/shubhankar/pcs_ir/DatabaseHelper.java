@@ -18,7 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_SEAT_NO = "SEAT_NO";
 
     // Database Information
-    private static final String DB_NAME = "charts001.db";
+    private static final String DB_NAME = "charts002.db";
 
     // database version
     static final int DB_VERSION = 1;
