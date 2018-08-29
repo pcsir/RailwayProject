@@ -5,7 +5,7 @@ public class PassengerModel {
     private String id,pnr;
 
 
-    public PassengerModel(String id, String name, String status, String seat, String pnr) {
+    public PassengerModel(String id, String name, String pnr, String status, String seat) {
         this.name = name;
         this.status = status;
         this.id = id;

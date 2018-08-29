@@ -32,9 +32,10 @@ public class ConfirmedAdapter extends ArrayAdapter<PassengerModel> {
             //Casting of views from the custom_row layout
             viewHolder.id= convertView.findViewById(R.id.id1);
             viewHolder.name = convertView.findViewById(R.id.name);
+            viewHolder.pnr=convertView.findViewById(R.id.pnr);
             viewHolder.status=convertView.findViewById(R.id.status);
             viewHolder.seat_no=convertView.findViewById(R.id.seat_no);
-            viewHolder.pnr=convertView.findViewById(R.id.pnr);
+
             convertView.setTag(viewHolder);
 
         }else {
@@ -44,8 +45,8 @@ public class ConfirmedAdapter extends ArrayAdapter<PassengerModel> {
         //Filling each views values
         viewHolder.id.setText(passengerModel.getId());
         viewHolder.name.setText(passengerModel.getName());
-        viewHolder.status.setText(passengerModel.getStatus());
         viewHolder.pnr.setText(String.valueOf(passengerModel.getPnr()));
+        viewHolder.status.setText(passengerModel.getStatus());
         viewHolder.seat_no.setText(passengerModel.getSeat());
 
 

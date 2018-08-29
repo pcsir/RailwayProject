@@ -26,16 +26,6 @@ public class ConfirmedFragment extends Fragment {
     PassengerModel passengerModel;
 
 
-
-    final String[] from = new String[] { DatabaseHelper.COL_ID,
-            DatabaseHelper.COL_NAME, DatabaseHelper.COL_PNR,DatabaseHelper.COL_STATUS
-            ,DatabaseHelper.COL_SEAT_NO};
-
-    final int[] to = new int[] { R.id.id1, R.id.name,R.id.pnr,R.id.status,
-            R.id.seat_no};
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -51,8 +41,8 @@ public class ConfirmedFragment extends Fragment {
 
         //dbManager.insert("Rohit Joshi","Waiting","B1 21", "2","2348384");
 
-        //dbManager.insert("Rohit Joshi","RAC","S2 21", "2","23456745");
-      // dbManager.insert("Parag Chitnis","Confirmed","S3 32", "8","6546754L");
+        //dbManager.insert("Rohit Joshi","RAC","S2 21", "7","23456745");
+       //dbManager.insert("Parag Chitnis","Confirmed","S3 32", "8","6546754L");
 
 
         cursor = dbManager.fetch();
@@ -62,8 +52,8 @@ public class ConfirmedFragment extends Fragment {
         for(cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
             passengerModel=new PassengerModel(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_ID)),
                     cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_NAME)),cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_PNR)),
-                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_SEAT_NO)),
-                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_STATUS)));
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_STATUS)),
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_SEAT_NO)));
 
 
             arrayList.add(passengerModel);
